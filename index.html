@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --Red-100: hsl(0, 36%, 70%);
+      --Red-200: hsl(0, 93%, 68%);
+      --Red-300: hsl(0, 6%, 24%);
+      --Linear-1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+      --Linear-2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: "Josefin Sans", sans-serif;
+      background: url(/images/bg-pattern-desktop.svg) no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 90%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 2fr 10fr;
+    }
+
+    .header {
+      grid-row: 1/2;
+      grid-column: 1/2;
+      height: 100%;
+      width: 100%;
+      margin-bottom: 15%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .header-content {
+      width: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    .img-bg {
+      background: url(/images/hero-desktop.jpg);
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .logo-box {
+      width: auto;
+      height: auto;
+    }
+
+    .logo {
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .main-body {
+      height: 100%;
+      width: 100%;
+      grid-row: 2/3;
+      grid-column: 1/2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main-body-content {
+      height: 80%;
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .hero {
+      grid-row: 1/3;
+      grid-column: 2/3;
+      height: 100%;
+      width: 100%;
+    }
+
+    .main-body-content .peach {
+      color: var(--Red-100);
+    }
+
+    .main-body-content h1 {
+      font-size: 4rem;
+      letter-spacing: 30px;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.1;
+      height: 40%;
+    }
+
+    .main-body-content p {
+      color: var(--Red-100);
+      line-height: 1.7;
+      letter-spacing: 0.5px;
+    }
+
+    .input-box {
+      width: 100%;
+      height: 15%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    .text-box {
+      width: 100%;
+      height: 70%;
+      position: relative;
+    }
+
+    .text-input {
+      width: 100%;
+      height: 100%;
+      padding: 1.5rem 2rem;
+      border: 3px solid lightgrey;
+      border-radius: 10rem;
+      text-indent: 1rem;
+      color: dimgrey;
+    }
+
+    .text-input.wrong {
+      transform: scaleX(20px);
+    }
+
+    .text-input:focus {
+      outline: none;
+    }
+
+    label {
+      width: 100%;
+      height: 20%;
+      color: var(--Red-200);
+      margin-left: 15%;
+      display: none;
+    }
+
+    .error {
+      position: absolute;
+      top: 30%;
+      left: 70%;
+      display: none;
+    }
+
+    .arrow-icon-box {
+      position: absolute;
+      top: 0%;
+      left: 80%;
+      height: 100%;
+      background: var(--Linear-2);
+      width: 21%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 7rem;
+      cursor: pointer;
+      box-shadow: 0 1rem 1.6rem 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .arrow-box {
+      height: auto;
+      width: auto;
+
+    }
+
+    .arrow-icon-box:hover {
+      filter: brightness(1.25);
+      transform: scaleX(1.1);
+      transform: scaleY(1.1);
+      box-shadow: 0 1rem 1rem 0.5rem rgba(0, 0, 0, 0.15);
+    }
+
+    .arrow {
+      color: white;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero {}
+
+    .img-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .img-bg-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    
+    @media(max-width:1200px) and (min-width:1000px) {
+      .main-body-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 25px;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.1;
+        height: 40%;
+      }
+    }
+        
+    @media(max-width:1000px) and (min-width:767px) {
+      .main-body-content h1 {
+        font-size: 1.25rem;
+        letter-spacing: 20px;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.1;
+        height: 40%;
+      }
+    }
+    @media(max-width:765px) and (min-width:600px) {
+      .main-body-content h1 {
+        font-size: 1.5rem;
+        letter-spacing: 20px;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.1;
+        height: 40%;
+      }
+      
+      .main-body-content {
+        width: 75%;
+        display: flex;
+        align-items: center;
+      }
+      .header-content {
+        width: 75%;
+      }
+    }
+    @media(max-width:600px) {
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+
+      }
+      .main-body-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 25px;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.1;
+        height: 40%;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 5fr 10fr;
+      }
+
+      .header {
+        grid-row: 1/2;
+        grid-column: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      .header-content {
+        width: 60%;
+      }
+
+      .img-bg {
+        background: url(/images/hero-mobile.jpg);
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .hero {
+        grid-row: 2/3;
+        grid-column: 1;
+      }
+
+      .main-body {
+        grid-row: 3/4;
+        grid-column: 1;
+      }
+
+      .main-body-content {
+        width: 60%;
+        display: flex;
+        align-items: center;
+      }
+
+      .main-body-content h1 {
+        text-align: center;
+      }
+
+      .main-body-content p {
+        text-align: justify;
+        text-align-last: center;
+      }
+
+      .main {
+        width: 100%;
+        height: 100%;
+      }
+
+      .arrow-icon-box {
+        height: 105%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="header">
+        <div class="header-content">
+
+
+          <div class="logo-box">
+            <img src="/images/logo.svg" alt="base apparel logo" class="logo" />
+          </div>
+        </div>
+
+      </div>
+      <div class="main-body">
+        <div class="main-body-content">
+          <h1>
+            <span class="peach">We're</span>
+            coming soon
+          </h1>
+          <p>
+            Hello fellow shoppers! We're currently building our new fashion store.
+            Add your email below to stay up-to-date with announcements and our launch deals.
+          </p>
+
+          <div class="input-box">
+            <span class="text-box">
+              <input type="text" class="text-input" placeholder="Email Address">
+              <img src="/images/icon-error.svg" alt="" class="error">
+              <span class="arrow-icon-box">
+                <span class="arrow-box">
+                  <img src="/images/icon-arrow.svg" alt="" class="arrow">
+                </span>
+
+              </span>
+
+            </span>
+            <label for="text-box" class="warning">Please provide a a valid email</label>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="hero">
+        <div class="img-bg">
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+  <script>
+    let errorIcon = document.querySelector(".error");
+    let arrowIcon = document.querySelector(".arrow-icon-box");
+    let toast = document.querySelector(".warning");
+    let inPut = document.querySelector(".text-input");
+    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+    function validateInput()  {
+      let input = inPut.value.trim();
+      let isEmail = emailRegex.test(input);
+      let isValid = (isEmail || input == "");
+
+      if (isValid && input !== "") {
+
+        console.log("It Works");
+        inPut.style.borderColor = "green";
+        toast.textContent = `Done Successfully 🎉🎉`;
+        toast.style.display = "block";
+        toast.style.color = "green";
+        errorIcon.style.display = "none";
+        inPut.classList.remove("wrong");
+      }
+      else if (!isValid && input !== "") {
+        toast.style.display = "block";
+        errorIcon.style.display = "block";
+        inPut.style.borderColor = "red";
+        inPut.classList.add("wrong");
+        console.log("I was clicked");
+        console.log(!isValid);
+      }
+      else {
+        toast.textContent = `Enter your email address`;
+        toast.style.display = "block";
+        errorIcon.style.display = "none";
+        inPut.style.borderColor = "";
+        inPut.classList.remove("wrong");
+      }
+    }
+
+    function debounce(func, delay) {
+        let timeout;
+        return function () {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, arguments), delay);
+        };
+      }
+
+        inPut.addEventListener("input", debounce(validateInput, 500));
+    arrowIcon.addEventListener("click", validateInput);
+  </script>
+</body>
+
+</html>
